@@ -1,13 +1,10 @@
 version: 2
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:10-browsers
-
 jobs:
   test:
-    <<: *defaults
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10-browsers
     steps:
       - checkout
 
@@ -34,7 +31,9 @@ jobs:
           root: ~/repo
           paths: .
   deploy:
-    <<: *defaults
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10-browsers
     steps:
       - attach_workspace:
           at: ~/repo
