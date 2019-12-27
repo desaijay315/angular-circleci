@@ -35,7 +35,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: npm set registry http://wmnexusec2.topcoder-dev.com/repository/npm-private/
+      - run: npm set registry http://wmnexusec2.topcoder-dev.com/repository/npm-private/auth=YWRtaW46dGNhZG1pbg==
       - run: echo "//wmnexusec2.topcoder-dev.com/repository/npm-private/auth=YWRtaW46dGNhZG1pbg==" > ~/repo/.npmrc
       - run: npm publish
 workflows:
