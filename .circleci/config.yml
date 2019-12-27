@@ -27,9 +27,9 @@ jobs:
         # End to End test
       - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+      # - persist_to_workspace:
+      #     root: ~/repo
+      #     paths: .
   deploy:
     working_directory: ~/repo
     docker:
