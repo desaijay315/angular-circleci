@@ -36,6 +36,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+        name: Set registry URL
+        command: npm set registry http://wmnexusec2.topcoder-dev.com/repository/npm-group/
+      - run:
           name: Authenticate with registry
           command: echo "registry=http://wmnexusec2.topcoder-dev.com/repository/npm-group/
 _auth=$npm_TOKEN" > ~/repo/.npmrc
