@@ -5,7 +5,7 @@ defaults: &defaults
   docker:
     - image: circleci/node:10.15.0
   environment:
-    CHROME_BIN: /usr/bin/google-chrome
+    CHROME_BIN: "/usr/bin/google-chrome"
 
 jobs:
   test:
@@ -22,7 +22,7 @@ jobs:
       - run: npm install
       - run:
           name: Run tests
-          command: npm test
+          command: ng test
 
       - save_cache:
           paths:
