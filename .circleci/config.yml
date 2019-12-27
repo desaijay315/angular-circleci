@@ -4,6 +4,8 @@ defaults: &defaults
   working_directory: ~/repo
   docker:
     - image: circleci/node:10.15.0
+  environment:
+    CHROME_BIN: /usr/bin/google-chrome
 
 jobs:
   test:
