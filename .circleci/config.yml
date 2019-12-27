@@ -24,8 +24,6 @@ jobs:
       - run: npm run lint
         # Test the source code
       - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-        # End to End test
-      - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
       - persist_to_workspace:
           root: ~/repo
