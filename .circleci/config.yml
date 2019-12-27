@@ -35,8 +35,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: npm set registry http://wmnexusec2.topcoder-dev.com/repository/npm-group/
-      - run: echo "//wmnexusec2.topcoder-dev.com/repository/npm-group/:auth=dG9wY29kZXJkZXY6VG9wY29kZXIxMjMh" > ~/repo/.npmrc
+      - run: npm set registry http://wmnexusec2.topcoder-dev.com/repository/hello-world-jaydesai/
+      - run: echo "//wmnexusec2.topcoder-dev.com/repository/hello-world-jaydesai/:auth=dG9wY29kZXJkZXY6VG9wY29kZXIxMjMh" > ~/repo/.npmrc
       - run: npm publish
 workflows:
   version: 2
