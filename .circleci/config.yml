@@ -40,8 +40,7 @@ jobs:
         command: npm set registry http://wmnexusec2.topcoder-dev.com/repository/npm-group/
       - run:
           name: Authenticate with registry
-          command: echo "//wmnexusec2.topcoder-dev.com/repository/npm-group/
-_auth=$npm_TOKEN" > ~/repo/.npmrc
+          command: echo "//wmnexusec2.topcoder-dev.com/repository/npm-group/_auth=$npm_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish package
           command: npm publish
