@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.15.0
+    - image: circleci/node:10-browsers
   environment:
     CHROME_BIN: "/usr/bin/google-chrome"
 
@@ -20,13 +20,17 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
-      - run: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
-      - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      # Lint the source code
+      - run: npm run lint
+      # Test the source code
+      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      # End to End test
+      - run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
       - persist_to_workspace:
           root: ~/repo
