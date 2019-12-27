@@ -20,14 +20,13 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
+      - run: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
+      - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
-      - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
 
       - persist_to_workspace:
           root: ~/repo
