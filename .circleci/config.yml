@@ -36,7 +36,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: npm set registry http://wmnexusec2.topcoder-dev.com/repository/npm-private/
-      - run: echo "//wmnexusec2.topcoder-dev.com/repository/npm-private/auth=$ADD_TOKEN" > ~/repo/.npmrc
+      - run: echo "//wmnexusec2.topcoder-dev.com/repository/npm-private/auth=YWRtaW46dGNhZG1pbg==" > ~/repo/.npmrc
       - run: npm publish
 workflows:
   version: 2
